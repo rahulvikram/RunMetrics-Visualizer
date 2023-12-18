@@ -1,12 +1,11 @@
 import sys
 import time
 import csv
-import functools
 import matplotlib.pyplot as plt
 
-def function_runner(func, count, filename, *args):
+def function_runner(func, count, output, *args, **kwargs):
 
-    with open(f"{filename}.csv", 'w', newline='') as csvfile:
+    with open(f"{output}.csv", 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
 
         # declare headers
@@ -14,7 +13,7 @@ def function_runner(func, count, filename, *args):
 
         for x in range(count):
             start = time.time()
-            func(*args)
+            func(*args, **kwargs)
             end = time.time()
             elapsed_s = round(end-start, 6)
             results.append([x+1, elapsed_s])
