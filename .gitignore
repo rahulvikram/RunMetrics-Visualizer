@@ -1,2 +1,9 @@
-# local output generated via testing
+# unwanted testing files
 runtimes.csv
+test.py
+
+# data files generated via tests
+data/
+
+# runtime compiled files
+__pycache__
