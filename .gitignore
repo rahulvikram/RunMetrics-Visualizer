@@ -1,9 +1,6 @@
-# unwanted testing files
-runtimes.csv
-test.py
-
 # data files generated via tests
 data/
 
 # runtime compiled files
-__pycache__
+__pycache__/
+src/__pycache__/
