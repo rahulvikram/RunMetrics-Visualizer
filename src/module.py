@@ -1,16 +1,25 @@
+# standard libraries
 import sys
 import os
 import time
 import math
 import csv
-import matplotlib.pyplot as plt
+import random
 
+# data science libraries
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# helper functions
 from helpers import *
 
 class Timer:
     def __init__(self):
         pass
+
     
+
+    @classmethod
     def run(self, func, output, *args, count=1, **kwargs):
  
         # splits user input into folder and filename for verification
@@ -56,7 +65,6 @@ class Timer:
                 # write the new_rows list to the csv file
                 with open(output, 'w', newline='') as csvfile:
                     writer = csv.writer(csvfile)
-                    print(new_rows)
                     writer.writerows(new_rows)
                     return 0
 
@@ -85,39 +93,60 @@ class Timer:
             writer.writerows(results) # write time data to csv file
 
 
-    # ---------------- TODO: MUST BE MODIFIED TO ACCOMODATE FOR GRAPHING MULTIPLE Y AXES BASED ON DATA ---------------- #
     # does not require func *args because it plots directly from file with static results
-    def plot(self, file, chart_style='dark_background', title='X vs Y', point_color=None): # point_color defaults to blue
-        # initialize blank array and labels for assignment later
-        x, y, x_label, y_label = [], [], str(), str()
-
+    @classmethod
+    def plot(self, file, chart_style='dark_background', title='X vs Y', point_colors=None): # point_color defaults to blue
         # error handling if file does not exist
         try:
-            f = open(f"data/{file}", 'r')
+            f = open(file)
         except FileNotFoundError:
             sys.exit('Error: file does not exist')
 
         # if file DOES exist
-        with open(f"data/{file}", 'r') as csvfile:
+        with open(file, 'r') as csvfile:
+            # 1. Assign data labels for x, y, and legend
             rows = csv.reader(csvfile, delimiter=',')
+            legend = next(rows)
+            # assignment of x, y labels, and legend
+            x_label = legend[0]
+            legend.pop(0) # remove x label from legend
+            y_label = 'runtime (s)'
 
-            # add each row's data to respective arrays
-            for row in rows:
-                try: 
-                    x.append(int(row[0]))
-                    y.append(float(row[1]))
-                except ValueError:
-                    # add top row to labels
-                    x_label, y_label = row[0], row[1]  
-
+            # 2. Load CSV columns into respective arrays
+            y_data = []
+            data = pd.read_csv(file)
+            x = data[x_label].tolist() # array of x axis values
+            
+            # load arrays of y values into y_data
+            for col in legend:
+                y_data.append(data[col].tolist())
+        
+        # if user did not specify point colors, use our own method of random sampling
+        if point_colors == None:
+            plot_colors = random.sample(colors, len(legend))
+        else: # if they did specify colors, use those
+            plot_colors = point_colors
+        
+        # 3. Plot the data
         plt.style.use(chart_style)
-        plt.scatter(x, y, None, point_color) # sets color of data points/line
+        fig = plt.figure()
+        ax = fig.add_subplot()
+
+        # for each y dataset
+        for y in y_data:
+            # generate scatterplot
+            ax.scatter(x, y, None, plot_colors[0], label=legend[0])
+            
+            # move to next color and legend label
+            plot_colors.pop(0)
+            legend.pop(0)
 
         # algorithm to determine number and intervals of ticks
         plt.xticks(range(x[0], x[-1]+1, math.ceil(len(x)/50))) # rounds up to prevent step of 0
 
+        # set labels, display chart
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.title(title)
-        plt.legend('test')
+        plt.legend(loc='upper left')
         plt.show()
