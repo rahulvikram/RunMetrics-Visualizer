@@ -41,7 +41,7 @@ def function_runner(func, count, output, *args, **kwargs):
                     x_label, y_label = row[0], row[1]
 
         plt.style.use('Solarize_Light2')
-        plt.plot(x, y, 'red')  
+        plt.scatter(x, y, None, 'olive')  
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.title('Function Runtimes')
@@ -50,3 +50,5 @@ def function_runner(func, count, output, *args, **kwargs):
 
     except FileNotFoundError:
         sys.exit('Error: file does not exist.')
+
+function_runner(waste_time, 20, 'test.csv', 10, 1000)
