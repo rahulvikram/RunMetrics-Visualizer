@@ -18,14 +18,13 @@ def other_function(iterations, sleep):
         time.sleep(sleep)
 
 
-# instantiate obj
-timer = Timer()
 
-timer.run(other_function, 'data/first_test.csv', 2, 0.1, count=50)
+
+# Timer.run(other_function, 'data/first_test.csv', 2, 0.1, count=50)
 
 
 # CODE FOR GRAPHING MULTIPLE Y AXES ON ONE GRAPH
-# timer.plot('second_test.csv', point_color='olive')
+Timer.plot('data/first_test.csv')
 
 
 # fig, ax = plt.subplots()
