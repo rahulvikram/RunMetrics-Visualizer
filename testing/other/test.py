@@ -1,11 +1,12 @@
 import matplotlib.pyplot as plt
 
-x = range(100)
-y = range(100,200)
-fig = plt.figure()
-ax1 = fig.add_subplot()
 
-ax1.scatter(x[:4], y[:4], label='first')
-ax1.scatter(x[40:],y[40:], label='second')
-plt.legend(loc='upper left')
+x = [1, 2, 3, 4, 5]
+y = [7, 3, 5, 3, 6]
+
+method_name = input('enter plot type: ')
+method = getattr(plt, method_name)
+
+method(x, y)
+
 plt.show()

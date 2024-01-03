@@ -17,15 +17,11 @@ def other_function(iterations, sleep):
         sum([x**5 for x in range(iterations)])
         time.sleep(sleep)
 
-
-
-
+# Timer.run(other_function, 'data/first_test.csv', 2, 0.1, count=50)
 # Timer.run(other_function, 'data/first_test.csv', 2, 0.1, count=50)
 
-
 # CODE FOR GRAPHING MULTIPLE Y AXES ON ONE GRAPH
-Timer.plot('data/first_test.csv')
-
+Timer.plot('data/first_test.csv', plot_type='plot', chart_style='Solarize_Light2')
 
 # fig, ax = plt.subplots()
 
