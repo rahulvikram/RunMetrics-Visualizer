@@ -17,8 +17,6 @@ class Timer:
     def __init__(self):
         pass
 
-    
-
     @classmethod
     def run(self, func, output, *args, count=1, **kwargs):
  
@@ -95,7 +93,7 @@ class Timer:
 
     # does not require func *args because it plots directly from file with static results
     @classmethod
-    def plot(self, file, chart_style='dark_background', title='X vs Y', point_colors=None): # point_color defaults to blue
+    def plot(self, file, plot_type='scatter', chart_style='dark_background', title='X vs Y', point_colors=None): # point_color defaults to blue
         # error handling if file does not exist
         try:
             f = open(file)
@@ -129,13 +127,14 @@ class Timer:
         
         # 3. Plot the data
         plt.style.use(chart_style)
-        fig = plt.figure()
-        ax = fig.add_subplot()
+
+        # get attribute from plt based on plot_type userinput
+        plottype = getattr(plt, plot_type)
 
         # for each y dataset
         for y in y_data:
             # generate scatterplot
-            ax.scatter(x, y, None, plot_colors[0], label=legend[0])
+            plottype(x, y, color=plot_colors[0], label=legend[0])
             
             # move to next color and legend label
             plot_colors.pop(0)
