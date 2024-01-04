@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import time
 
 sys.path.append('src')
-from module import Timer
+from timer import Timer
 
 
 # test function
@@ -17,11 +17,16 @@ def other_function(iterations, sleep):
         sum([x**5 for x in range(iterations)])
         time.sleep(sleep)
 
+def third_order(iterations, sleep):
+    for x in range(iterations):
+        sum([x**5 for x in range(iterations)])
+        time.sleep(sleep)
+
 # Timer.run(other_function, 'data/first_test.csv', 2, 0.1, count=50)
-# Timer.run(other_function, 'data/first_test.csv', 2, 0.1, count=50)
+# Timer.run(third_order, 'data/first_test.csv', 2, 0.04, count=50)
 
 # CODE FOR GRAPHING MULTIPLE Y AXES ON ONE GRAPH
-Timer.plot('data/first_test.csv', plot_type='plot', chart_style='Solarize_Light2')
+Timer.plot('data/first_test.csv', plot_type='plot')
 
 # fig, ax = plt.subplots()
 

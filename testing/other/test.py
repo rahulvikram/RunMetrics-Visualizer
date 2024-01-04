@@ -1,12 +1,17 @@
-import matplotlib.pyplot as plt
+import tkinter as tk
+from tkinter import filedialog
+import sys
+import csv
 
+sys.path.append('src')
+from module import Timer
 
-x = [1, 2, 3, 4, 5]
-y = [7, 3, 5, 3, 6]
+def UploadAction(event=None):
+    filename = filedialog.askopenfilename()
+        
 
-method_name = input('enter plot type: ')
-method = getattr(plt, method_name)
+root = tk.Tk()
+button = tk.Button(root, text='Open', command=UploadAction)
+button.pack()
 
-method(x, y)
-
-plt.show()
+root.mainloop()

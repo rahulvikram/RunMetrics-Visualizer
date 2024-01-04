@@ -133,7 +133,7 @@ class Timer:
 
         # for each y dataset
         for y in y_data:
-            # generate scatterplot
+            # generate plot
             plottype(x, y, color=plot_colors[0], label=legend[0])
             
             # move to next color and legend label
