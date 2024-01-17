@@ -5,7 +5,7 @@ import time
 
 sys.path.append('src')
 from timer import Timer
-
+from plot import generate_plot
 
 # test function
 def waste_time(num, iterations):
@@ -26,7 +26,9 @@ def third_order(iterations, sleep):
 # Timer.run(third_order, 'data/first_test.csv', 2, 0.04, count=50)
 
 # CODE FOR GRAPHING MULTIPLE Y AXES ON ONE GRAPH
-Timer.plot('data/first_test.csv', plot_type='plot')
+Timer.plot('data/first_test.csv')
+
+
 
 # fig, ax = plt.subplots()
 
