@@ -53,7 +53,7 @@ def initialize_ui(plot_file):
     # initializes point colors to randomc colors incase user leaves fields blank
     global point_colors 
     point_colors = random.sample(colors, len(functions))
-    
+
     # Window title
     root = tk.Tk()
     root.title("Function Graphing GUI")
@@ -64,15 +64,15 @@ def initialize_ui(plot_file):
     label.grid(row=0, column=1)
 
     color_inputs = [] # empty color_inputs
-    for function in functions: # for each function that exists
+    for z in range(len(functions)):
         # generate a dropdown box for function
         dropdown = ttk.Combobox(root, values = colors, state='readonly')
-        dropdown.grid(row=2, column=functions.index(function), padx=10, pady=(2, 8))
+        dropdown.grid(row=2, column=z, padx=10, pady=(2, 8))
         color_inputs.append(dropdown)
 
         # dropdown labels above each dropdown, corresponding to function name
-        label = tk.Label(root, text=function, font=('Helvetica', 11))
-        label.grid(row=1, column=functions.index(function), padx=10)
+        label = tk.Label(root, text=functions[z], font=('Helvetica', 11))
+        label.grid(row=1, column=z, padx=10)
 
 
     # section 2: Plot type choices

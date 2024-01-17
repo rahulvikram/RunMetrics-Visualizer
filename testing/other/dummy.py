@@ -23,7 +23,7 @@ def third_order(iterations, sleep):
         time.sleep(sleep)
 
 # Timer.run(other_function, 'data/first_test.csv', 2, 0.1, count=50)
-# Timer.run(third_order, 'data/first_test.csv', 2, 0.04, count=50)
+# Timer.run(waste_time, 'data/first_test.csv', 100, 1000, count=50)
 
 # CODE FOR GRAPHING MULTIPLE Y AXES ON ONE GRAPH
 Timer.plot('data/first_test.csv')
