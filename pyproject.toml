@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "runmetrics_visualizer"
+name = "runmetricsvisualizer"
 version = "3.1.1"
 description = "A package for storing function runtime data and graphing it via GUI!"
 authors = ["Rahul Vikram"]
@@ -7,12 +7,13 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-
-[tool.poetry.dev-dependencies]
+python = "^3.9"
 matplotlib = "^3.8.2"
 pandas = "^2.1.4"
-pillow = "^10.0.1"
+pillow = "^10.2.0"
+
+[tool.poetry.dev-dependencies]
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

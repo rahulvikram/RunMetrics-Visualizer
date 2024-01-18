@@ -72,11 +72,11 @@ def initialize_ui(plot_file):
     label.grid(row=3, column=1, pady=(12, 0))
 
     # set images for radiobuttons
-    image = tk.PhotoImage(file='img/plot-types/scatter.png')
+    image = tk.PhotoImage(file='src/img/plot-types/scatter.png')
     scatter_img = image.subsample(4,4)
-    image = tk.PhotoImage(file='img/plot-types/lineplot.png')
+    image = tk.PhotoImage(file='src/img/plot-types/lineplot.png')
     lineplot_img = image.subsample(5,5)
-    image = tk.PhotoImage(file='img/plot-types/stackplot.png')
+    image = tk.PhotoImage(file='src/img/plot-types/stackplot.png')
     stackplot_img = image.subsample(4,4)
 
     # radio buttons for selections
@@ -96,11 +96,11 @@ def initialize_ui(plot_file):
     label.grid(row=5, column=1, pady=(12, 0))
 
     # set images for radiobuttons
-    image = tk.PhotoImage(file='img/backgrounds/defaultbg.png')
+    image = tk.PhotoImage(file='src/img/backgrounds/defaultbg.png')
     default = image.subsample(4,4)
-    image = tk.PhotoImage(file='img/backgrounds/darkbg.png')
+    image = tk.PhotoImage(file='src/img/backgrounds/darkbg.png')
     dark = image.subsample(4,4)
-    image = tk.PhotoImage(file='img/backgrounds/solarizedbg.png')
+    image = tk.PhotoImage(file='src/img/backgrounds/solarizedbg.png')
     solarized = image.subsample(4,4)
 
     # radio buttons for selections
