@@ -3,7 +3,7 @@ import sys
 import matplotlib.pyplot as plt
 import time
 
-sys.path.append('src')
+sys.path.append('src/runmetrics-visualizer')
 from timer import Timer
 from plot import generate_plot
 

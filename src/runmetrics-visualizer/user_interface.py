@@ -10,12 +10,7 @@ import plot
 
 # end variables to return
 # chart style
-chart_style = 'default'
-# plot type
-plot_type = 'scatter'
-# title
-title = 'X vs Y'
-
+chart_style, plot_type, title = 'default', 'scatter', 'X vs Y'
 
 def get_settings(color_inputs, plottype_var, chartbg_var, title_var, plot_file):    
     items = []
@@ -32,12 +27,8 @@ def get_settings(color_inputs, plottype_var, chartbg_var, title_var, plot_file):
         for color in items:
             point_colors.append(color)
 
-    # STEP 2: return plot type as string
-    plot_type = plottype_var.get()
-    # STEP 3: return chart bg as string
-    chart_style = chartbg_var.get()
-    # STEP 4: return title
-    title = title_var.get()
+    # return other vars
+    plot_type, chart_style, title = plottype_var.get(), chartbg_var.get(), title_var.get()
 
 
     # run plot function from timer.py at the end using all modified variables
@@ -81,11 +72,11 @@ def initialize_ui(plot_file):
     label.grid(row=3, column=1, pady=(12, 0))
 
     # set images for radiobuttons
-    image = tk.PhotoImage(file='img/plot_types/scatter.png')
+    image = tk.PhotoImage(file='img/plot-types/scatter.png')
     scatter_img = image.subsample(4,4)
-    image = tk.PhotoImage(file='img/plot_types/lineplot.png')
+    image = tk.PhotoImage(file='img/plot-types/lineplot.png')
     lineplot_img = image.subsample(5,5)
-    image = tk.PhotoImage(file='img/plot_types/stackplot.png')
+    image = tk.PhotoImage(file='img/plot-types/stackplot.png')
     stackplot_img = image.subsample(4,4)
 
     # radio buttons for selections

@@ -1,5 +1,0 @@
-{
-    "name": "poetry",
-    "image": "pypkgs/vscode",
-    "extensions": ["mspython"]
-}
