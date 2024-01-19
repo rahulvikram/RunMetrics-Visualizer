@@ -58,7 +58,6 @@ def generate_plot(file, plot_type='scatter', chart_style='default', title='X vs 
         plottype(x, y_data, colors=plot_colors, labels=legend)
     else:
         for y in y_data:
-            print(y)
             plottype(x, y, color=plot_colors[0], label=legend[0])
     
             # move to next color and legend label
