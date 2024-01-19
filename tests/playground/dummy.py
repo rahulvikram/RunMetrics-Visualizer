@@ -3,7 +3,7 @@ import sys
 import matplotlib.pyplot as plt
 import time
 
-sys.path.append('src/runmetrics-visualizer')
+sys.path.append('src/runmetricsvisualizer')
 from timer import Timer
 from plot import generate_plot
 
@@ -23,10 +23,10 @@ def third_order(iterations, sleep):
         time.sleep(sleep)
 
 # Timer.run(other_function, 'data/first_test.csv', 2, 0.1, count=50)
-# Timer.run(waste_time, 'data/first_test.csv', 100, 1000, count=50)
+Timer.run(waste_time, 'data/first_test.csv', 100, 1000, count=50)
 
 # CODE FOR GRAPHING MULTIPLE Y AXES ON ONE GRAPH
-Timer.plot('data/first_test.csv')
+# Timer.plot('data/first_test.csv')
 
 
 

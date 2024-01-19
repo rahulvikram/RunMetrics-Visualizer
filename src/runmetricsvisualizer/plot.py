@@ -13,9 +13,7 @@ import pandas as pd
 from helpers import *
 
 # Final plotting method
-def generate_plot(file, plot_type='scatter', chart_style='default', title='X vs Y', point_colors=None): # point_color defaults to blue
-   
-    print(plot_type)
+def generate_plot(file, plot_type='scatter', chart_style='default', title='X vs Y', point_colors=None, savefile=None):
     # error handling if file does not exist
     try:
         f = open(file)
@@ -38,10 +36,11 @@ def generate_plot(file, plot_type='scatter', chart_style='default', title='X vs 
         x = data[x_label].tolist() # array of x axis values
         
         # load arrays of y values into y_data
-        for col in legend:
-            y_data.append(data[col].tolist())
+        # FIX: avoid redundant data loading due to duplicate function names
+        for z in range(len(legend)):
+            y_data.append(data[legend[z]].tolist())
     
-    # if user did not specify point colors, use our own method of random sampling
+    # for testing: if user did not specify point colors, use our own method of random sampling
     if point_colors == None:
         plot_colors = random.sample(colors, len(legend))
     else: # if they did specify colors, use those
@@ -59,6 +58,7 @@ def generate_plot(file, plot_type='scatter', chart_style='default', title='X vs 
         plottype(x, y_data, colors=plot_colors, labels=legend)
     else:
         for y in y_data:
+            print(y)
             plottype(x, y, color=plot_colors[0], label=legend[0])
     
             # move to next color and legend label
@@ -73,4 +73,10 @@ def generate_plot(file, plot_type='scatter', chart_style='default', title='X vs 
     plt.ylabel(y_label)
     plt.title(title)
     plt.legend(loc='upper left')
-    plt.show()
+
+    # based on userinput (or lacktherof) either display or save plot
+    if savefile == None:
+        plt.show()
+    else:
+        plt.savefig(savefile)
+        plt.cla()

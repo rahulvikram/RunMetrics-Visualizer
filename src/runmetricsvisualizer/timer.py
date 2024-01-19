@@ -36,6 +36,7 @@ class Timer:
                 # ensures number of iterations in the file matches the user provided count
                 if row_count != count:
                     sys.exit('Error: Inputted count does not match file row count.')
+                
                 # otherwise if they do match, execute proper code
                 with open(output, 'r') as csvfile:
                     rows = csv.reader(csvfile, delimiter=',')
@@ -52,7 +53,19 @@ class Timer:
                             row.append(elapsed_s)
 
                         except: # if we are at the header, append the function name to the header
-                            row.append(func.__name__)
+                            if func.__name__ in row: # modifies name if it already exists to avoid plotting issues
+                                count_suffix = 0
+                                for w in range(1, len(row)):
+                                    if f"{func.__name__}{w}" in row:
+                                        count_suffix+=1
+                                count_suffix+=1
+
+                                # append the latest version of function
+                                row.append(f"{func.__name__}{count_suffix}")
+
+                            # else if name is not in row, append regularly
+                            else:
+                                row.append(func.__name__)
                         
                         new_rows.append(row) # append the new row to the list of new rows
 
@@ -74,12 +87,13 @@ class Timer:
             # set file mode to writing
             writer = csv.writer(csvfile)
 
+
+            
             # declare data headers
             results = [['iteration', f'{func.__name__}']]
 
             # execute function specified amt of times
             for x in range(count):
-
                 # measure elapsed time while running each iteration
                 elapsed_s = time_function(func, *args, **kwargs)
                 results.append([x+1, elapsed_s]) # add elapsed time data to the file data

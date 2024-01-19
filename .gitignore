@@ -1,6 +1,3 @@
-# data files generated via tests
-data/
-
 # runtime compiled files
 **/__pycache__/
 
