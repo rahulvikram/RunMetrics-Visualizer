@@ -21,7 +21,5 @@ class TestRuntimeFunction(ut.TestCase):
         for x in range(5):    
            generate_plot('data/first_test.csv', random.choice(self.plots), random.choice(self.charts), savefile=f"tests/test-plots/testplot-{x}")
 
-
-
 if __name__ == '__main__': 
     ut.main()
