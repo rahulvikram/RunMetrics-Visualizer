@@ -85,9 +85,9 @@ def initialize_ui(plot_file):
     lineplot = ttk.Radiobutton(root, image=lineplot_img, text='line plot', value='plot', variable=i, takefocus=False)
     stackplot = ttk.Radiobutton(root, image=stackplot_img, text='stackplot', value='stackplot', variable=i, takefocus=False)
     
-    scatterplot.grid(row=4, column=0)
-    lineplot.grid(row=4, column = 1)
-    stackplot.grid(row=4, column=2)
+    scatterplot.grid(row=4, column=0, padx= 5)
+    lineplot.grid(row=4, column = 1, padx= 5)
+    stackplot.grid(row=4, column=2, padx= 5)
 
 
     # section 3: chart background
@@ -109,9 +109,9 @@ def initialize_ui(plot_file):
     darkbg = ttk.Radiobutton(root, image=dark, value='dark_background', variable=j, takefocus=False)
     solarizedbg = ttk.Radiobutton(root, image=solarized, value='Solarize_Light2', variable=j, takefocus=False)
     
-    defaultbg.grid(row=6, column=0)
-    darkbg.grid(row=6, column = 1)
-    solarizedbg.grid(row=6, column=2)
+    defaultbg.grid(row=6, column=0, padx= 5)
+    darkbg.grid(row=6, column = 1, padx= 5)
+    solarizedbg.grid(row=6, column=2, padx= 5)
 
 
     # section 4: chart title section
