@@ -1,15 +1,8 @@
 # RunMetrics Visualizer
 ### A handy developer tool for storing function runtime data and graphing it via GUI!
 
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 
 
