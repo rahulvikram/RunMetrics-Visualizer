@@ -9,7 +9,7 @@ from helpers import *
 # UI initializer
 import user_interface
 
-class Timer:
+class RuntimeMetrics:
     def __init__(self):
         pass
 
