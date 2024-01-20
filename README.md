@@ -67,7 +67,7 @@ Simply pip install the module
 <!-- USAGE EXAMPLES -->
 ## Usage
 ```py
-import runmetricsvisualizer as rmv
+from runmetricsvisualizer.runmetrics import RunMetrics
 ```
 
 ### RunMetrics.run()
