@@ -4,10 +4,10 @@ import os
 import csv
 
 # helper functions
-from helpers import *
+from runmetricsvisualizer.helpers import *
 
 # UI initializer
-import user_interface
+import runmetricsvisualizer.user_interface
 
 class RunMetrics:
     def __init__(self):

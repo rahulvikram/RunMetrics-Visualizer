@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # helper functions
-from helpers import *
+from runmetricsvisualizer.helpers import *
 
 # Final plotting method
 def generate_plot(file, plot_type='scatter', chart_style='default', title='X vs Y', point_colors=None, savefile=None):

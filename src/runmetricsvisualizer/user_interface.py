@@ -5,8 +5,8 @@ import tkinter as tk
 import random
 from PIL import ImageTk, Image
 from tkinter import ttk
-from helpers import *
-import plot
+from runmetricsvisualizer.helpers import *
+import runmetricsvisualizer.plot
 
 # end variables to return
 # chart style
